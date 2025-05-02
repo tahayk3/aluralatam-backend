@@ -3,20 +3,17 @@ import com.tahayk3.screenmatch.modelos.Pelicula;
 public class Principal {
     public static void main(String[] args) {
 
-        //crear objeto y llenar datos
         Pelicula miPelicula = new Pelicula();
-        miPelicula.setNombre("Lalaland");
-        miPelicula.setFechaDeLanzamiento(2019);
-        miPelicula.setDuracionEnMinutos(220);
-        miPelicula.setIncluirEnPlan(true);
+        miPelicula.setNombre("La familia del futuro");
+        miPelicula.setFechaDeLanzamiento(2007);
+        miPelicula.setDuracionEnMinutos(95);
+        miPelicula.setDirector("pablo cuarom");
+        miPelicula.setIncluidoEnElPlan(true);
 
-        //asignar calificaciones
+        miPelicula.muestraFichaTecnica();
+        miPelicula.evalua(10);
+        miPelicula.evalua(10);
         miPelicula.evalua(7.8);
-        miPelicula.evalua(9);
-
-        //procesar y mostrar datos
-        miPelicula.mostrarFichaTecnnica();
-        System.out.println(miPelicula.getTotaEvaluaciones());
-        System.out.println(miPelicula.calcularMedia());
+        System.out.println("Média de evaluaciones de la película: " +miPelicula.calculaMedia());
     }
 }
