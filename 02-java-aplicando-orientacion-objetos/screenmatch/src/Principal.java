@@ -43,7 +43,7 @@ public class Principal {
 
         //filtros de clasificacion
         FiltroRecomendacion filtroRecomendacion = new FiltroRecomendacion();
-        filtroRecomendacion.filtra();
+        filtroRecomendacion.filtra(miPelicula);
 
 
 

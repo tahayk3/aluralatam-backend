@@ -8,6 +8,14 @@ public class Episodio implements Clasificacion {
     //aqui se forma la relacion entre serie y episodio
     private Serie serie;
 
+    public int getTotalVisualizaciones() {
+        return TotalVisualizaciones;
+    }
+
+    public void setTotalVisualizaciones(int totalVisualizaciones) {
+        TotalVisualizaciones = totalVisualizaciones;
+    }
+
     private int TotalVisualizaciones;
 
     public int getNumero() {
