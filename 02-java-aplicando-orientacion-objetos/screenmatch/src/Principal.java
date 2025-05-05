@@ -1,3 +1,5 @@
+import com.tahayk3.screenmatch.calculos.CalculadoraDeTiempo;
+import com.tahayk3.screenmatch.calculos.FiltroRecomendacion;
 import com.tahayk3.screenmatch.modelos.Pelicula;
 import com.tahayk3.screenmatch.modelos.Serie;
 
@@ -30,6 +32,73 @@ public class Principal {
         //mostrar datos de serie
         theLastOfUs.muestraFichaTecnica();
         System.out.println(theLastOfUs.getDuracionEnMinutos());
+
+
+        //calculadora pelicula y serie
+        System.out.println("----------------");
+        CalculadoraDeTiempo calculadora  = new CalculadoraDeTiempo();
+        calculadora.incluye(miPelicula);
+        calculadora.incluye(theLastOfUs);
+        System.out.println("Tiempo necesario para ver contenido: "+ calculadora.getTiempoTotal());
+
+        //filtros de clasificacion
+        FiltroRecomendacion filtroRecomendacion = new FiltroRecomendacion();
+        filtroRecomendacion.filtra();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }
