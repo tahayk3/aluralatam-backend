@@ -110,21 +110,93 @@ public class Principal {
         }
         * */
 
+        /*  ejercicio 7
+        System.out.print("Ingrese el valor del préstamo: ");
+        int valor = scanner.nextInt();
+
+        if (valor >= 1000 && valor <= 5000) {
+            System.out.println("El valor " + valor + " está dentro del intervalo permitido para el préstamo.");
+        } else {
+            System.out.println("El valor " + valor + " no está dentro del intervalo permitido para el préstamo.");
+        }
+
+        scanner.close();
+        * */
 
 
+        /* ejercicio 8
+        System.out.print("Ingrese el primer lado: ");
+        int lado1 = scanner.nextInt();
+
+        System.out.print("Ingrese el segundo lado: ");
+        int lado2 = scanner.nextInt();
+
+        System.out.print("Ingrese el tercer lado: ");
+        int lado3 = scanner.nextInt();
+
+        if (lado1 + lado2 > lado3 && lado1 + lado3 > lado2 && lado2 + lado3 > lado1) {
+            System.out.println("Los lados pueden formar un triángulo.");
+        } else {
+            System.out.println("Los lados no pueden formar un triángulo.");
+        }
+
+        scanner.close();
+        * */
+
+        /* ejercicio 9
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese la edad del donante: ");
+        int edad = scanner.nextInt();
+
+        System.out.print("Ingrese el peso del donante (en kg): ");
+        double peso = scanner.nextDouble();
+
+        boolean edadValida = edad >= 18 && edad <= 65;
+        boolean pesoValido = peso > 50;
+
+        if (edadValida && pesoValido) {
+            System.out.println("El donante es compatible para donar sangre.");
+        } else {
+            System.out.println("El donante no es compatible. Motivo:");
+            if (!edadValida) {
+                System.out.println("- Debe tener entre 18 y 65 años.");
+            }
+            if (!pesoValido) {
+                System.out.println("- Debe pesar más de 50 kg.");
+            }
+        }
+        scanner.close();
+        * */
 
 
+        /*ejercicio final
+        Scanner scanner = new Scanner(System.in);
+        int codigoCorrecto = 2023;
+        int nivelPermisoMinimo = 1;
+        int nivelPermisoMaximo = 3;
 
+        System.out.print("Ingrese el código de acceso: ");
+        int codigoDigitado = scanner.nextInt();
 
+        System.out.print("Ingrese el nivel de permiso: ");
+        int nivelPermiso = scanner.nextInt();
 
+        boolean codigoValido = codigoDigitado == codigoCorrecto;
+        boolean permisoValido = nivelPermiso >= nivelPermisoMinimo && nivelPermiso <= nivelPermisoMaximo;
 
+        if (codigoValido && permisoValido) {
+            System.out.println("Acceso permitido. ¡Bienvenido al sistema!");
+        } else {
+            System.out.println("Acceso denegado. Motivo(s):");
+            if (!codigoValido) {
+                System.out.println("- Código de acceso incorrecto.");
+            }
+            if (!permisoValido) {
+                System.out.println("- Nivel de permiso inválido.");
+            }
+        }
 
-
-
-
-
-
-
-
+        * */
     }
 }
