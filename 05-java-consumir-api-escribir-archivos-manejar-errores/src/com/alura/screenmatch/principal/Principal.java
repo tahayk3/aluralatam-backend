@@ -47,25 +47,17 @@ public class Principal {
         episodio.setTotalVisualizaciones(300);
         filtro.filtra(episodio);
 
+        var peliculaDeBruno = new Pelicula("El señor de los anillos", 2001);
+        peliculaDeBruno.setDuracionEnMinutos(180);
 
-        //creando pelicula con constructor personalizado
-        var peliculaDeBruno = new Pelicula("El señor de los anillos", 180);
-        peliculaDeBruno.setFechaDeLanzamiento(2001);
-
-        //creando lista de tipo Pelicula
         ArrayList<Pelicula> listaDePeliculas = new ArrayList<>();
-
-        //agregando peliculas a lista
+        listaDePeliculas.add(peliculaDeBruno);
         listaDePeliculas.add(miPelicula);
         listaDePeliculas.add(otraPelicula);
-        listaDePeliculas.add(peliculaDeBruno);
 
-        //mostrando datos
-        System.out.println("Cantidad de peliculas en la lista: " + listaDePeliculas.size());
-        System.out.println("La primera pelicula es :" + listaDePeliculas.get(0).getNombre());
-
-        System.out.println("Tostring de la pelicula"+ listaDePeliculas.get(0).toString());
-
-
+        System.out.println("Tamaño de la lista: " + listaDePeliculas.size());
+        System.out.println("La primera pelicula es: " + listaDePeliculas.get(0).getNombre());
+        System.out.println(listaDePeliculas.toString());
+        System.out.println("toString de la pelicula: " + listaDePeliculas.get(0).toString());
     }
 }

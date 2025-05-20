@@ -5,9 +5,7 @@ import com.alura.screenmatch.modelos.Serie;
 import com.alura.screenmatch.modelos.Titulo;
 
 import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 public class PrincipalConListas {
     public static void main(String[] args) {
@@ -40,7 +38,7 @@ public class PrincipalConListas {
         }
 
         //creando una lista simple de dato primitivo String
-        ArrayList<String> listaActores = new ArrayList<>();
+        List<String> listaActores = new LinkedList<>();
         listaActores.add("Penelope Cruz");
         listaActores.add("Antonio Banderas");
         listaActores.add("Ricardo Darin");
