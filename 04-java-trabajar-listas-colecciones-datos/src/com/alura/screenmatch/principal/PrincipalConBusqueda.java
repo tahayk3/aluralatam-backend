@@ -32,9 +32,16 @@ public class PrincipalConBusqueda {
         String json = response.body();
         System.out.println(json);
 
+        //Utilizando Gson para convertir respuesta de api en un objeto
+        //Gson gson = new Gson();
+        Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
+        TituloOmdb miTituloOmbd = gson.fromJson(json, TituloOmdb.class);
+        System.out.println("Titulo desde api: "+ miTituloOmbd.toString());
 
+        //creando titulo a partir de record
+        Titulo miTitulo = new Titulo(miTituloOmbd);
+        System.out.println("Objeto que se creo a partir de un record"+miTitulo);
 
-
-
+        
     }
 }
