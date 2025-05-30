@@ -1,5 +1,6 @@
 package com.tahayk3.screenmatch.principal;
 
+import com.tahayk3.screenmatch.model.DatosEpisodio;
 import com.tahayk3.screenmatch.model.DatosSerie;
 import com.tahayk3.screenmatch.model.DatosTemporadas;
 import com.tahayk3.screenmatch.service.ConsumoAPI;
@@ -32,53 +33,19 @@ public class Principal {
             var datosTemporada = conversor.obtenerDatos(json, DatosTemporadas.class);
             temporadasLista.add(datosTemporada);
         }
-        temporadasLista.forEach(System.out::println);
+        //temporadasLista.forEach(System.out::println);
 
+        //mostrar solo el titulo de los episodios para la temporadas con for animado o funciones lambda
+       /*
+        for (int i = 0; i < datos.totalDeTemporadas() ; i++) {
+            List<DatosEpisodio> episodiosTemporada = temporadasLista.get(i).episodios();
+            for (int j = 0; j < episodiosTemporada.size(); j++) {
+                System.out.println(episodiosTemporada.get(j).titulo());
+            }
+        }
+        */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        temporadasLista.forEach(t -> t.episodios().forEach(e -> System.out.println(e.titulo())));
 
     }
 }
