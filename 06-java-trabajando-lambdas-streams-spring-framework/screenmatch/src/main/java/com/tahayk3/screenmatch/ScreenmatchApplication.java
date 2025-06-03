@@ -3,6 +3,7 @@ package com.tahayk3.screenmatch;
 import com.tahayk3.screenmatch.model.DatosEpisodio;
 import com.tahayk3.screenmatch.model.DatosSerie;
 import com.tahayk3.screenmatch.model.DatosTemporadas;
+import com.tahayk3.screenmatch.principal.EjemploStreams;
 import com.tahayk3.screenmatch.principal.Principal;
 import com.tahayk3.screenmatch.service.ConsumoAPI;
 import com.tahayk3.screenmatch.service.ConvierteDatos;
@@ -24,5 +25,7 @@ public class ScreenmatchApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		Principal principal = new Principal();
 		principal.muestraMenu();
+		//EjemploStreams ejemploStreams = new EjemploStreams();
+		//ejemploStreams.muestraEjemplo();
 	}
 }
