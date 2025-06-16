@@ -13,3 +13,4 @@ public record DatosSerie(
         @JsonAlias("Actors")String actores,
         @JsonAlias("Plot")String sinopsis) {
 }
+
