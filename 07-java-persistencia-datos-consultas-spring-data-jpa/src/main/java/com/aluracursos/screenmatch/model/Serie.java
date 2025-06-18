@@ -1,6 +1,6 @@
 package com.aluracursos.screenmatch.model;
 
-import com.fasterxml.jackson.annotation.JsonAlias;
+import com.aluracursos.screenmatch.service.ConsultaGemini;
 
 import java.util.OptionalDouble;
 
@@ -90,7 +90,6 @@ public class Serie {
         this.genero = Categoria.fromString(datosSerie.genero().split(",")[0].trim());
         this.actores = datosSerie.actores();
         this.sinopsis = datosSerie.sinopsis();
-
 
 
 
