@@ -90,34 +90,5 @@ public class Serie {
         this.genero = Categoria.fromString(datosSerie.genero().split(",")[0].trim());
         this.actores = datosSerie.actores();
         this.sinopsis = datosSerie.sinopsis();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
