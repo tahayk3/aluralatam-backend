@@ -104,6 +104,11 @@ public class Serie {
                 ;
     }
 
+    //constructor predeterminado para que pueda funcionar JPA
+    public Serie(){
+
+    }
+
     public Serie(DatosSerie datosSerie){
         this.titulo = datosSerie.titulo();
         this.totalTemporadas = datosSerie.totalTemporadas();
