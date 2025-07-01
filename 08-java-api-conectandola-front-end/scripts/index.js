@@ -83,6 +83,7 @@ function generaSeries() {
         })
         .catch(error => {
             tratarConErrores("Ocurrio un error al cargar los datos.");
+            console.error(error);
         });
 
 }

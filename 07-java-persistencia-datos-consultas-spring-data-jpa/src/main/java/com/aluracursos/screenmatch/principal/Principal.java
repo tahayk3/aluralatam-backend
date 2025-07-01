@@ -19,6 +19,7 @@ public class Principal {
     private SerieRepository repositorio;
     private List<DatosSerie> datosSeries = new ArrayList<>();
     private List<Serie> series = new ArrayList<>();
+    private Optional<Serie> serieBuscada;
 
 
     public Principal(SerieRepository repository) {
@@ -37,7 +38,8 @@ public class Principal {
                     5 - Top 5 mejore series
                     6 - Buscar series por categoria
                     7 - Filtrar series  
-                    8 - Buscar episodios por titulo 
+                    8 - Buscar episodios por titulo
+                    9 - Top 5 episodios por Serie
                        
                     0 - Salir
                     """;
@@ -69,6 +71,9 @@ public class Principal {
                     break;
                 case 8:
                     buscarEpisodiosPorTitulo();
+                    break;
+                case 9:
+                    buscarTop5Episodios();
                     break;
                 case 0:
                     System.out.println("Cerrando la aplicación...");
@@ -177,62 +182,16 @@ public class Principal {
         episodiosEncontrados.forEach(e -> System.out.printf("Serie: %s Temporada: %s ",
                 e.getSerie(), e.getTemporada(), e.getNumeroEpisodio(), e.getEvaluacion()));
     }
+
+    private void buscarTop5Episodios(){
+        buscarSeriesPorTitulo();
+        if(serieBuscada.isPresent()){
+            Serie serie = serieBuscada.get();
+            List<Episodio> topEpisodios = repositorio.top5Episodios(serie);
+            topEpisodios.forEach(e ->
+                    System.out.printf("Serie: %s - Temporada %s - Episodio %s - Evaluación %s\n",
+                            e.getSerie().getTitulo(), e.getTemporada(), e.getTitulo(), e.getEvaluacion()));
+
+        }
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
