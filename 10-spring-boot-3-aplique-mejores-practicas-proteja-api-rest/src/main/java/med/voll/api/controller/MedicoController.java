@@ -9,6 +9,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("/medicos")
@@ -19,8 +20,13 @@ public class MedicoController {
 
     @Transactional
     @PostMapping
-    public void registrar(@RequestBody @Valid DatosRegistroMedico datos) {
-        repository.save(new Medico(datos));
+    public ResponseEntity registrar(@RequestBody @Valid DatosRegistroMedico datos, UriComponentsBuilder urlComponentsBuilder) {
+        var medico = new Medico(datos);
+        repository.save(medico);
+
+        var uri = urlComponentsBuilder.path("/medicos/{id}").buildAndExpand(medico.getId()).toUri();
+
+        return ResponseEntity.created(uri).body(new DatosDetalleMedico(medico));
     }
 
     @GetMapping
@@ -30,13 +36,14 @@ public class MedicoController {
         return ResponseEntity.ok(page);
     }
 
+
     @Transactional
     @PutMapping
     public ResponseEntity actualizar(@RequestBody @Valid DatosActualizacionMedico datos) {
         var medico = repository.getReferenceById(datos.id());
         medico.actualizarInformaciones(datos);
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(new DatosDetalleMedico(medico));
     }
 
     @Transactional
@@ -47,4 +54,12 @@ public class MedicoController {
 
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity detallar(@PathVariable Long id) {
+        var medico = repository.getReferenceById(id);
+
+        return ResponseEntity.ok(new DatosDetalleMedico(medico));
+    }
+
 }
