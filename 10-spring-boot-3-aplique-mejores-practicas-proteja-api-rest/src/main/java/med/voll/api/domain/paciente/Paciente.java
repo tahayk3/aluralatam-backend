@@ -1,68 +1,53 @@
-package med.voll.api.medico;
+package med.voll.api.domain.paciente;
 
 import jakarta.persistence.*;
-import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import med.voll.api.direccion.Direccion;
+import med.voll.api.domain.direccion.Direccion;
 
-@Table(name = "medicos")
-@Entity(name = "Medico")
 @Getter
+@EqualsAndHashCode(of = "id")
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "id")
-public class Medico {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@Entity(name = "Paciente")
+@Table(name = "pacientes")
+public class Paciente {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Boolean activo;
     private String nombre;
     private String email;
+    private String documento_identidad;
     private String telefono;
-    private String documento;
-
-    @Enumerated(EnumType.STRING)
-    private Especialidad especialidad;
 
     @Embedded
     private Direccion direccion;
 
-    public Medico(DatosRegistroMedico datos) {
-        this.id = null;
+    public Paciente(DatosRegistroPaciente datos) {
         this.activo = true;
         this.nombre = datos.nombre();
         this.email = datos.email();
         this.telefono = datos.telefono();
-        this.documento = datos.documento();
-        this.especialidad = datos.especialidad();
+        this.documento_identidad = datos.documento_identidad();
         this.direccion = new Direccion(datos.direccion());
     }
 
-    public void actualizarInformaciones(@Valid DatosActualizacionMedico datos) {
+    public void atualizarInformacion(DatosActualizacionPaciente datos) {
         if (datos.nombre() != null) {
             this.nombre = datos.nombre();
         }
-        if (datos.telefono() != null) {
+
+        if (datos.telefono() != null)
             this.telefono = datos.telefono();
-        }
-        if (datos.direccion() != null) {
-            this.direccion.actualizarDireccion(datos.direccion());
-        }
+
+        if (datos.direccion() != null)
+            direccion.actualizarDireccion(datos.direccion());
     }
 
-    public void eliminar() {
+    public void desactivar() {
         this.activo = false;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Direccion getDireccion() {
@@ -73,28 +58,20 @@ public class Medico {
         this.direccion = direccion;
     }
 
-    public Especialidad getEspecialidad() {
-        return especialidad;
-    }
-
-    public void setEspecialidad(Especialidad especialidad) {
-        this.especialidad = especialidad;
-    }
-
-    public String getDocumento() {
-        return documento;
-    }
-
-    public void setDocumento(String documento) {
-        this.documento = documento;
-    }
-
     public String getTelefono() {
         return telefono;
     }
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public String getDocumento_identidad() {
+        return documento_identidad;
+    }
+
+    public void setDocumento_identidad(String documento_identidad) {
+        this.documento_identidad = documento_identidad;
     }
 
     public String getEmail() {
@@ -120,5 +97,12 @@ public class Medico {
     public void setActivo(Boolean activo) {
         this.activo = activo;
     }
-}
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+}
